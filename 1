@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Mine</title>
+        <meta charset="UTF-8"></meta>
+    </head>
+    <body>
+        <h1>www</h1>
+        <button type="button" onclick="createArray();disableFunction(this)">CLICK</button>
+        <table id="table1" border="1"></table>
+    </body>
+</html>
+
+
+<script type="text/javascript">
+    var test1 ;
+    test1 = new Array();
+    function createArray() {
+        var x = 1 ;
+        var row = 0 ; //table1的行數
+        var col = 0 ; //table1的列數以及顯示的數值
+        while(x<=100){ //製作一個1~100的陣列
+            test1.push(x)
+            x++;
+        };
+        test1.sort( function(){ //隨機排列陣列
+            return Math.round( Math.random()) - 0.5 ;
+        });
+        while(row<10){ //將隨機陣列排入10x10表格
+            var a=document.getElementById('table1').insertRow(row)
+            while(col<10){
+                var y=a.insertCell(col)
+                y.innerHTML=test1[row*10+col]
+                col++;
+            }
+            row++;
+            col = 0;
+        };
+    };
+    function disableFunction(button){ //按鈕一次性
+        button.disabled = 'disabled'; 
+    };
+</script>
