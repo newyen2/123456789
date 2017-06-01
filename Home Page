@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <h1>Home Page-Alpha0.06</h1>
+        <a href="https://www.google.com.tw/"><img src="https://a0.muscache.com/airbnb/static/signinup/google_icon_2x-745c2280e5004d4c90e3ca4e60e3f677.png" border="2"></a>
+        <a href="https://www.google.com/gmail/"><img src="http://www.gezginler.net/mobil/resimler/13/ikon2_gmail-ikon.png" border="2"></a>
+        <br/>
+        <a href="https://www.facebook.com/"><img src="http://www.comparateurpronos.net/FB_20LOGO0.jpg?v=1xqvjslv0esnhz" border="2"></a>
+        <br/>
+        <a href="https://www.youtube.com/?gl=TW&hl=zh-tw"><img src="https://vessoftstatic.com/static/software/youtube-40.png?1" border="2"></a>
+        <br/>
+        <a href="https://www.gamer.com.tw/"><img src="https://i2.bahamut.com.tw/none.gif" border="2"></a>
+        <br/>
+        <a href="https://zh.wikipedia.org/wiki/Wikipedia:%E9%A6%96%E9%A1%B5"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tango_style_Wikipedia_Icon.svg/40px-Tango_style_Wikipedia_Icon.svg.png" border="2"></a>
+        <br/><br/>
+        <textarea rows="3" cols="20">文字暫放處......</textarea>
+        <br/>
+        <p>計算機</p>
+        <p id="answer"></p>
+        <button id="0" type="button" onclick="newNumber(0)">0</button>
+        <button id="1" type="button" onclick="newNumber(1)">1</button>
+        <button id="2" type="button" onclick="newNumber(2)">2</button>
+        <button id="3" type="button" onclick="newNumber(3)">3</button>
+        <button id="4" type="button" onclick="newNumber(4)">4</button>
+        <button id="5" type="button" onclick="newNumber(5)">5</button>
+        <button id="6" type="button" onclick="newNumber(6)">6</button>
+        <button id="7" type="button" onclick="newNumber(7)">7</button>
+        <button id="8" type="button" onclick="newNumber(8)">8</button>
+        <button id="9" type="button" onclick="newNumber(9)">9</button>
+        <button id="plus" type="button" onclick="newNumber(10)">+</button>
+        <button id="minus" type="button" onclick="newNumber(11)">-</button>
+        <button id="muiti" type="button" onclick="newNumber(12)">*</button>
+        <button id="divide" type="button" onclick="newNumber(13)">/</button>
+        <button id="equal" type="button" onclick="newNumber(14)">=</button>
+        <button id="cleaned" type="button" onclick="newNumber(15)">C</button>
+    </body>
+</html>
+<script>
+    var num = null;//現在的數字
+    var num2 = null;//舊數字暫存區
+    var mark = 0;//1+2-3*4/5=
+    var a;
+    function newNumber(a){
+        if(a < 10) {
+            num = ( num * 10 ) + a;
+            document.getElementById("answer").innerHTML=num;
+        } else if(a < 14) {
+            num2 = num;
+            num = 0;
+            mark = a - 9;
+        } else if(a < 15) {
+            switch(mark){
+                case 0:
+                    break;
+                case 1:
+                    num = num2 + num;
+                    break;
+                case 2:
+                    num = num2 - num;
+                    break;
+                case 3:
+                    num = num2 * num;
+                    break;
+                case 4:
+                    num = num2 / num;
+                    break;
+            };
+            num2 = null;
+            mark = 0;
+            document.getElementById("answer").innerHTML=num;
+        } else {
+            num2 = num = mark = 0;
+            document.getElementById("answer").innerHTML=num;
+        };
+    };
+    
+</script>
+
+
+<!--
+更新日誌
+2017/6/1 Alpha0.05 Link(Google,Gmail,Facebook,Youtube,Bahamut,Wikipedia)1.0完成
+         Alpha0.06 WorkSpace:Textarea1.0完成
+2017/6/1 Alpha0.07 WorkSpace:Calculator1.0完成
+
+>
